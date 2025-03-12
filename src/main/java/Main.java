@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -6,13 +7,26 @@ public class Main {
         // Kullanıcıdan sayıyı al
         Scanner scanner = new Scanner(System.in);
         System.out.print("Sayı Giriniz : ");
-        int sayi = scanner.nextInt();
 
-        // Asal olup olmadığını kontrol et
-        if (isAsal(sayi, sayi/2)) {
-            System.out.println(sayi + " sayısı ASALdır !");
-        } else {
-            System.out.println(sayi + " sayısı ASAL değildir !");
+        // Exception Handling
+        try {
+            int sayi = scanner.nextInt();
+
+            // Asal olup olmadığını kontrol et
+            if (isAsal(sayi, sayi/2)) {
+                System.out.println(sayi + " sayısı ASALdır !");
+            } else {
+                System.out.println(sayi + " sayısı ASAL değildir !");
+            }
+
+        }catch (NullPointerException excpt){
+            System.out.println("Scanner nesnesi oluşturulamadı");
+        }catch(InputMismatchException excpt){
+            System.out.println("Geçersiz şifre girişi !");
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }finally {
+            scanner.close();
         }
     }
 
