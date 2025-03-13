@@ -39,23 +39,23 @@
 
 ### 4. **Asal Kontrolü İçin Recursive (Yinelemeli) Metod:**
    ```java
-   public static boolean isAsal(int sayi, int i) {
+   public static boolean isAsal(int sayi, int tempNumb) {
        if (sayi <= 1) {
            return false;
        }
-       if (i <= 1) {
+       if (tempNumb <= 1) {
            return true;
        }
-       if (sayi % i == 0) {
+       if (sayi % tempNumb == 0) {
            return false;
        }
-       return isAsal(sayi, --i);
+       return isAsal(sayi, tempNumb + 1);
    }
    ```
 - Bu metot, bir sayının asal olup olmadığını kontrol etmek için **rekürsif** bir algoritma kullanır.
 - Eğer sayı 1 veya daha küçükse asal değildir, bu durumda `false` döner.
-- Eğer `i` 1'e eşitse, o zaman sayı asal kabul edilir ve `true` döner.
-- Eğer sayı `i` ile tam bölünüyorsa (yani kalansız bölünüyorsa), bu sayının asal olmadığını gösterir ve `false` döner.
+- Eğer `tempNumb` 1'e eşitse, o zaman sayı asal kabul edilir ve `true` döner.
+- Eğer sayı `tempNumb` ile tam bölünüyorsa (yani kalansız bölünüyorsa), bu sayının asal olmadığını gösterir ve `false` döner.
 - Eğer yukarıdaki şartlar sağlanmazsa, metot kendisini yeniden çağırarak, daha küçük bir değeri kontrol eder.
 
 ### 5. **Kodun Çalışma Mantığı:**
