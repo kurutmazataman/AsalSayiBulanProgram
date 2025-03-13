@@ -31,20 +31,20 @@ public class Main {
     }
 
     // Recursive metot: isAsal
-    public static boolean isAsal(int sayi, int i) {
+    public static boolean isAsal(int sayi, int tempNumber) {
         // Eğer sayi 1'den küçükse, asal olamaz
         if (sayi <= 1) {
             return false;
         }
         // Sayinin 1 dışında hiçbir kalansız böleni yoksa sayi asaldır.
-        if (i <= 1) {
+        if (tempNumber <= 1) {
             return true;  // Sayı asal
         }
         // Eğer sayi, i'ye tam bölünüyorsa asal değildir
-        if (sayi % i == 0) {
+        if (sayi % tempNumber == 0) {
             return false; // Sayı asal değil
         }
         // Rekürsif olarak devam et
-        return isAsal(sayi, --i);
+        return isAsal(sayi, tempNumber -1);
     }
 }
